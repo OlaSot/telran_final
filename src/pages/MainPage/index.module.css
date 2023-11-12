@@ -1,0 +1,194 @@
+/*category*/
+.catalog_container {
+    color: #575959;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 1600px;
+
+}
+
+
+.all_cat {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+.cat_container p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    white-space: normal;
+}
+
+.cat_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 90px;
+}
+
+.cat_container span {
+    display: block;
+}
+
+
+
+.main_banner_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product_container {
+    width: 320px;
+
+}
+
+.gen_sale_container {
+    color: #575959;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 1600px;
+}
+
+
+
+
+.disc_img {
+    width: 320px;
+    height: 280px;
+    /* background-image: url('/../front/public/media/bridge.png'); */
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.new_price {
+    font-size: 30px;
+    font-weight: 600;
+    color: #575959;
+}
+
+.old_price {
+    color: #8B8B8B;
+    font-weight: 500;
+    text-decoration: line-through;
+}
+
+.discount {
+    color: #da3f3f;
+    font-weight: 600;
+}
+
+.price_wrapper {
+
+    width: 250px;
+    margin: 0 auto;
+    display: flex;
+    gap: 33px;
+    align-items: center;
+}
+
+.sale_desc {
+    width: 70%;
+    margin: 0 auto;
+    color: #575959;
+}
+
+.block_name {
+    color: #575959;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn_container {
+    display: flex;
+    gap: 67px;
+    padding-bottom: 30px;
+
+
+}
+
+
+
+.block_name {
+    color: #575959;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+
+@media(max-width: 900px) {
+    .main_container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .catalog_container {
+        display: none;
+    }
+
+
+    .gen_sale_container {
+        order: 1;
+    }
+
+    .sale_banner {
+        order: 2;
+    }
+
+
+}
+
+@media(max-width: 600px) {
+
+    .product_container {
+        width: 100%;
+    }
+
+
+    .gen_sale_container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+
+    .disc_img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    .new_price,
+    .old_price,
+    .discount {
+        font-size: 20px;
+    }
+
+
+    .block_name {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .btn_container {
+        gap: 20px;
+    }
+
+
+    .sale_desc {
+        width: 90%;
+    }
+
+    .price_wrapper {
+        width: 90%;
+        gap: 10px;
+    }
+}

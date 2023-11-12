@@ -1,0 +1,43 @@
+.all_categories {
+    margin-top: 80px;
+    margin-bottom: 90px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+}
+
+
+
+@media(max-width: 1400px) {
+
+
+    .all_categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+}
+
+
+@media(max-width: 1080px) {
+    .main_container {
+        width: 90%;
+    }
+
+    .all_categories {
+        margin-top: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+
+
+}
+
+@media(max-width: 600px) {
+    .all_categories {
+        
+        gap: 20px;
+        margin-top: 50px;
+        margin-bottom: 60px;
+    }
+}

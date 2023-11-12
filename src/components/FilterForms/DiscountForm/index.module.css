@@ -1,0 +1,15 @@
+.title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.discount {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.discount input {
+    width: 40px;
+    height: 40px;
+}

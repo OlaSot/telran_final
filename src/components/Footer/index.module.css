@@ -1,0 +1,163 @@
+.wrapper {
+    color: #575959;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 1600px;
+
+}
+
+.text_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.number {
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 70px;
+}
+
+.strasse {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.address>p:first-of-type {
+    margin-top: 25px;
+}
+
+.hours {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.duration {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.content_cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.content_cont img {
+    width: 70px;
+    height: 58px;
+    margin-bottom: 8px;
+}
+
+.social_media_content {
+    display: flex;
+    gap: 35px;
+    margin-top: 33px;
+}
+
+.content_cont p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.map {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.number a {
+    text-decoration: none;
+    color: black;
+    font-weight: medium;
+
+}
+
+@media (max-width: 1080px) {
+    .number {
+        margin-top: 25px;
+        font-weight: 500;
+        font-size: 25px;
+    }
+
+    .strasse {
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 900px) {
+    .number {
+        margin-top: 25px;
+        font-weight: 500;
+        font-size: 25px;
+    }
+
+    .strasse {
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .map {
+        display: none;
+    }
+    
+
+}
+
+@media(max-width: 600px) {
+    .wrapper {
+        width: 95%;
+    }
+
+    .text_container {
+        justify-content: space-evenly;
+    }
+
+    .contact_container,
+    .address {
+        width: 45%;
+    }
+
+    .number,
+    .strasse,
+    h1 {
+        font-size: 24px;
+    }
+    .number, .strasse{
+        font-size: 18px;
+    }
+
+
+    .hours {
+        font-size: 16px;
+    }
+
+    .duration {
+        font-size: 18px;
+    }
+
+    .content_cont img {
+        width: 50px;
+        height: 42px;
+    }
+
+    .social_media_content {
+        gap: 20px;
+    }
+
+
+}
+

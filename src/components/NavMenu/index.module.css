@@ -1,0 +1,173 @@
+.main_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1600px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 180px;
+    height: 160px;
+    margin-right: 3.75px;
+}
+
+.cart_img {
+    width: 50px;
+    height: 50px;
+}
+
+
+.links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    font-weight: medium;
+    font-size: 22px;
+    transition: font-size 0.3s ease-in-out;
+}
+
+
+.links a:hover {
+    font-size: 25px;
+}
+
+.cart_img {
+    width: 40px;
+    height: 40px;
+}
+
+@media(max-width: 1400px) {
+    .main_container {
+        max-width: 1400px;
+    }
+
+    .logo {
+        width: 160px;
+        height: 140px;
+        margin-right: 3.75px;
+    }
+
+    .links {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        margin-right: 100px;
+        text-decoration: none;
+        white-space: nowrap;
+        font-size: 24px;
+    }
+
+
+
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+@media(max-width: 1080px) {
+    .main_container {
+        width: 90%;
+    }
+
+    .logo {
+        width: 125px;
+        height: 113px;
+        margin-right: 3.75px;
+    }
+
+    .btn_catalog {
+        margin-right: 100px;
+        width: 190px;
+        height: 37.5px;
+        font-size: 20px;
+    }
+
+    .image {
+        width: 174px;
+        height: 42px;
+    }
+
+    .btn_catalog:hover .image {
+        width: 215px;
+        height: 37px;
+
+    }
+
+
+    .links {
+        gap: 50px;
+        margin-right: 80px;
+    }
+
+    .links a {
+        white-space: pre-line;
+        text-align: center;
+        font-size: 20px;
+
+    }
+
+
+    .links a:hover {
+        font-size: 25px;
+    }
+
+}
+
+@media(max-width: 900px) {
+    .main_container {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .links {
+        display: none;
+    }
+
+    .cart_img {
+        display: none;
+    }
+
+    .container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+}
+
+@media(max-width: 600px) {
+    .main_container {
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+
+
+
+    .logo {
+        width: 100px;
+        height: 90px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+
+
+}

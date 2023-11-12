@@ -1,0 +1,259 @@
+.sale_container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.image_sale {
+
+    width: 1400px;
+    height: auto;
+}
+
+.image_sale_block {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.links {
+    text-decoration: none;
+}
+
+.text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    position: absolute;
+
+
+}
+
+.sale_container h1 {
+    color: white;
+    font-size: 9.375em;
+    text-transform: uppercase;
+    color: #737F49;
+    margin-top: -40px;
+    margin-left: 140px;
+
+
+}
+
+.sale_container h2 {
+    margin-top: 50px;
+    margin-left: 140px;
+    color: white;
+    font-size: 97px;
+    text-transform: uppercase;
+
+}
+
+.sale_btn {
+    margin-top: -55px;
+    margin-left: 90px;
+    color: #737F49;
+    font-size: 8.75em;
+    text-transform: uppercase;
+
+
+}
+
+
+.sale_container button {
+    width: 155px;
+    height: 80px;
+    border-radius: 13px;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 60px;
+}
+
+@media(max-width: 1920px) {
+
+    .image_sale {
+        width: 1200px;
+
+    }
+
+    .sale_container h2 {
+        font-size: 70px;
+    }
+
+    .sale_container h1 {
+        font-size: 130px;
+    }
+
+    .sale_btn {
+        font-size: 130px;
+    }
+}
+
+@media(max-width: 1400px) {
+
+    .image_sale {
+        width: 1000px;
+
+    }
+
+    .sale_container h2 {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .sale_container h1 {
+        font-size: 100px;
+        margin-bottom: 20px;
+
+    }
+
+    .sale_btn {
+        font-size: 100px;
+        margin-bottom: 20px;
+
+    }
+}
+
+
+@media(max-width: 1080px) {
+    .image_sale {
+        width: 850px;
+    }
+
+    .sale_container h2 {
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+
+    .sale_container h1 {
+        font-size: 90px;
+        margin-bottom: 10px;
+
+    }
+
+    .sale_btn {
+        font-size: 100px;
+        margin-bottom: 40px;
+
+    }
+
+
+}
+
+@media(max-width: 900px) {
+
+    .image_sale {
+        width: 650px;
+    }
+
+    .sale_container h2 {
+        margin-top: 55px;
+        margin-bottom: 15px;
+        margin-left: 50px;
+
+        font-size: 50px;
+    }
+
+    .sale_container h1 {
+        margin-bottom: 20px;
+        font-size: 70px;
+        margin-left: 50px;
+    }
+
+    .sale_btn {
+        font-size: 70px;
+        margin-left: 50px;
+
+    }
+
+    .text {
+        width: 70%;
+        display: flex;
+        align-items: ceter;
+    }
+
+}
+
+@media(max-width: 600px) {
+    .image_sale {
+        width: 410px;
+    }
+
+    .sale_container h2 {
+        font-size: 30px;
+        margin-top: 50px;
+        margin-left: 20px;
+    }
+
+    .sale_container h1 {
+        font-size: 40px;
+        margin-left: 20px;
+        margin-top: -25px;
+    }
+
+    .sale_btn {
+        font-size: 40px;
+        margin-left: 20px;
+        margin-top: -30px;
+    }
+
+    .text {
+        width: 90%;
+        align-items: center;
+    }
+}
+@media(max-width: 375px) {
+    .sale_container {
+        width: 100%;
+        padding: 0 15px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .image_sale {
+        width: 100%;
+        max-width: 375px;
+    }
+
+    .sale_container h2 {
+        font-size: 24px;
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .sale_container h1 {
+        font-size: 35px;
+        margin-left: 10px;
+        margin-top: -20px;
+        text-align: center;
+    }
+
+    .sale_btn {
+        font-size: 30px;
+        margin-left: 10px;
+        margin-top: -45px;
+        text-align: center;
+    }
+
+
+    .links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+

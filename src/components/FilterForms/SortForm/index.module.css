@@ -1,0 +1,11 @@
+.sorted {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sorted select {
+    width: 220px;
+    height: 40px;
+    border-radius: 7px;
+}
