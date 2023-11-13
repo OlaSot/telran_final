@@ -64,6 +64,11 @@
         display: none;
     }
 
+    .background_pattern {
+        background-image: url(./Pattern.png);
+        background-size: cover;
+    }
+
 
 }
 

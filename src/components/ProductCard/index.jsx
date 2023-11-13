@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./index.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCartAction } from "../../store/reducers/cartReducer";
+import ModalWindowProduct from "../ModalWindowProduct";
+
 
 export default function ProductCard({
   id,
@@ -14,6 +16,16 @@ export default function ProductCard({
 }) {
 
   const dispatch = useDispatch();
+
+  const [showModal, setShowModal] = useState(false)
+
+  const addToCart = () => {
+    dispatch(addToCartAction(product))
+    setShowModal(true);
+    setTimeout(() => {
+      setShowModal(false)
+    },800)
+  }
   
   const saleCalculation = (price, discont_price) => {
     if (discont_price === null) {
@@ -43,7 +55,7 @@ export default function ProductCard({
         </Link>
         <div
           className={s.add_btn}
-          onClick={() => dispatch(addToCartAction(product))}
+          onClick={addToCart}
         >
           Add to cart
         </div>
@@ -63,6 +75,7 @@ export default function ProductCard({
           )}
         </div>
       </div>
+      {showModal && <ModalWindowProduct />}
     </div>
   );
 }

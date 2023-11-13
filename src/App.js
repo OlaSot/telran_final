@@ -14,6 +14,7 @@ import { useDispatch} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getAllCategories } from './requests/categories_req';
 import NavMenuBottom from './components/NavMenuBottom';
+import ModalWindowProduct from './components/ModalWindowProduct';
 
 
 

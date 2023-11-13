@@ -8,7 +8,12 @@ const CLEAR_CART = 'CLEAR_CART';
 let defaultState = JSON.parse(localStorage.getItem('prod_in_Cart')) ?? []
 console.log(defaultState);
 
-export const addToCartAction = payload => ({type: ADD_TO_CART, payload})
+export const addToCartAction = (payload) => {
+return (dispatch, getState) => {
+    dispatch({type: ADD_TO_CART, payload})
+    const updatedState = getState().cart
+    localStorage.setItem("prod_in_Cart", JSON.stringify(updatedState))}}
+
 export const deleteFromCartAction = payload => ({ type: DELETE_FROM_CART, payload });
 export const incrementCountAction = payload => ({ type: INCREMENT_COUNT, payload });
 export const decrementCountAction = payload => ({ type: DECREMENT_COUNT, payload });
