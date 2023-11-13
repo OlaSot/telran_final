@@ -50,6 +50,22 @@
     height: 40px;
 }
 
+.cart {
+    display: flex;
+    gap: 8px;
+}
+
+.amount{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(235, 242, 194);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 @media(max-width: 1400px) {
     .main_container {
         max-width: 1400px;

@@ -26,7 +26,7 @@ export default function MainPage() {
   };
 
   const random_products = get_random_products();
-  console.log("random", random_products);
+  // console.log("random", random_products);
 
   return (
     <div className={s.main_container}>
