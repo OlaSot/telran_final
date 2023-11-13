@@ -22,6 +22,10 @@ export default function ProductCard({
   const addToCart = () => {
     dispatch(addToCartAction(product))
     setShowModal(true);
+    if ('vibrate' in navigator) {
+      // Vibrate for 100 milliseconds
+      navigator.vibrate(100);
+    }
     setTimeout(() => {
       setShowModal(false)
     },800)

@@ -10,11 +10,11 @@ import NavMenu from './components/NavMenu';
 import Footer from './components/Footer';
 import SingleProductPage from './pages/SingleProductPage';
 import AllSales from './pages/AllSales';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getAllCategories } from './requests/categories_req';
 import NavMenuBottom from './components/NavMenuBottom';
-import ModalWindowProduct from './components/ModalWindowProduct';
+
 
 
 
@@ -30,9 +30,24 @@ function App() {
     setIsFilterVisible(!isFilterVisible);
   };
 
+  const items = useSelector((state) => state.cart);
+
+  const uniqueProductIds = [];
+  console.log(uniqueProductIds);
+
+  items.forEach((item) => {
+    if (!uniqueProductIds.includes(item.id)) {
+      uniqueProductIds.push(item.id);
+    }
+  });
+
+  const uniqueProductCount = uniqueProductIds.length;
+
+  console.log(uniqueProductCount);
+
   return (
     <div>
-      <NavMenu />
+      <NavMenu uniqueProductCount={uniqueProductCount}/>
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/categories' element={<AllCategoriesPage />} />
@@ -45,7 +60,7 @@ function App() {
       </Routes>
 
       <Footer />
-      <NavMenuBottom/>
+      <NavMenuBottom uniqueProductCount={uniqueProductCount}/>
     </div>
   );
 }

@@ -63,13 +63,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 @media(max-width: 1400px) {
     .main_container {
         max-width: 1400px;
     }
+
 
     .logo {
         width: 160px;
@@ -153,6 +153,9 @@
 
     }
 
+    .amount{
+        display: none;
+    }
     .links {
         display: none;
     }

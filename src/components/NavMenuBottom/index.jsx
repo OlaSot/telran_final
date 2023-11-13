@@ -6,7 +6,7 @@ import shopBag from './shop_bag.svg'
 import sale from './sale.svg'
 import cart from './cart.png'
 
-export default function NavMenuBottom() {
+export default function NavMenuBottom({uniqueProductCount}) {
   return (
     <div className={s.container}>
       <div className={s.navMenu}>
@@ -22,6 +22,9 @@ export default function NavMenuBottom() {
         </Link>
         <Link to="/cart">
           <img src={cart} alt="" className={s.main} />
+          <div className={s.amount}>
+              <p>{uniqueProductCount}</p>
+            </div>
         </Link>
       </div>
       </div>

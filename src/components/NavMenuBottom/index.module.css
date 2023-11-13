@@ -9,7 +9,18 @@
 
 }
 
-
+.amount{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(235, 242, 194);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 7px;
+    right: 20px;
+}
 
 
 
@@ -25,7 +36,6 @@
 }
 
 .links {
-
     padding: 12px 40px 15px;
     display: flex;
     justify-content: space-between;

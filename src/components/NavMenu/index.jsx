@@ -4,23 +4,10 @@ import s from "./index.module.css";
 import logo from "./logo.png";
 import Btn from "../Btn";
 import cart from "./cart.png";
-import { useSelector } from "react-redux";
 
-export default function NavMenu() {
-  const items = useSelector((state) => state.cart);
 
-  const uniqueProductIds = [];
-  console.log(uniqueProductIds);
+export default function NavMenu({uniqueProductCount}) {
 
-  items.forEach((item) => {
-    if (!uniqueProductIds.includes(item.id)) {
-      uniqueProductIds.push(item.id);
-    }
-  });
-
-  const uniqueProductCount = uniqueProductIds.length;
-
-  console.log(uniqueProductCount);
 
   return (
     <div className={`${s.main_container} `}>
