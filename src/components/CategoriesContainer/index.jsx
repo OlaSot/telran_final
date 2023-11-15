@@ -3,10 +3,15 @@ import { useSelector } from "react-redux";
 import Category from "../Category";
 import s from "./index.module.css";
 
+
+
 export default function CategoriesContainer({ limit }) {
-  const categories = useSelector((state) => state.categories);
+  const categories = useSelector((state) => state.categories.list);
+  console.log(categories);
 
   const displayed_categories = limit ? categories.slice(0, 4) : categories;
+
+
 
   return (
     <div className={s.all_categories}>
