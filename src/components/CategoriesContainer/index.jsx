@@ -7,7 +7,7 @@ import s from "./index.module.css";
 
 export default function CategoriesContainer({ limit }) {
   const categories = useSelector((state) => state.categories.list);
-  console.log(categories);
+  // console.log(categories);
 
   const displayed_categories = limit ? categories.slice(0, 4) : categories;
 

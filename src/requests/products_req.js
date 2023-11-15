@@ -24,7 +24,7 @@ export const getAllProducts = createAsyncThunk(
     async() => {
         const resp = await fetch('https://telran-final-server.onrender.com/products/all')
         const data = await resp.json()
-        console.log(data);
+        return data
     }
 )
 

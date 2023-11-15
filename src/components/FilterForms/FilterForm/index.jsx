@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { filterProductAction } from "../../../store/reducers/allProductsReducer";
+import { filterProductAction, filter_products } from "../../../store/reducers/allProductsReducer";
 import s from "./index.module.css";
 import { filterProductCatAction } from "../../../store/reducers/productsByCategoryReducer";
 
@@ -11,8 +11,8 @@ export default function FilterForm() {
   const dispatch = useDispatch();
 
   const handleChange = (min, max) => {
-    console.log(min, max);
-    dispatch(filterProductAction({ minValue: min, maxValue: max }));
+    // console.log(min, max);
+    dispatch(filter_products({ minValue: min, maxValue: max }));
     dispatch(filterProductCatAction({ minValue: min, maxValue: max }));
   };
 

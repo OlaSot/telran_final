@@ -14,11 +14,11 @@ export default function AllProductsPage({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProducts);
+    dispatch(getAllProducts());
   }, [dispatch]);
 
-  const allProducts = useSelector((state) => state.allProducts);
-  console.log(allProducts);
+  const allProducts = useSelector((state) => state.allProducts.list);
+  // console.log(allProducts);
 
   return (
     <div className={s.container}>
@@ -33,15 +33,16 @@ export default function AllProductsPage({
       </div>
       <div className={`${s.filter_mobile} ${isFilterVisible ? s.show : ""}`}>
         <FilterForm />
-        <DiscountForm />
+        {/* <DiscountForm /> */}
         <SortForm />
       </div>
       <div className={s.sort_container}>
         <FilterForm />
-        <DiscountForm />
+        {/* <DiscountForm /> */}
         <SortForm />
       </div>
-      <ProductsContainer products={allProducts} />
+      
+       <ProductsContainer products={allProducts} />
     </div>
   );
 }

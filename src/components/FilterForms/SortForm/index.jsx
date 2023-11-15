@@ -3,12 +3,14 @@ import { useDispatch } from "react-redux";
 import { sortProductsAction } from "../../../store/reducers/allProductsReducer";
 import s from "./index.module.css";
 import { sortProductsCatAction } from "../../../store/reducers/productsByCategoryReducer";
+import {sort_products} from "../../../store/reducers/allProductsReducer";
+
 
 export default function SortForm() {
   const dispatch = useDispatch();
 
   const order = (e) => {
-    dispatch(sortProductsAction(e.target.value));
+    dispatch(sort_products(e.target.value));
     dispatch(sortProductsCatAction(e.target.value));
   };
 

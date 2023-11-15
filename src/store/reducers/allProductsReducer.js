@@ -1,37 +1,58 @@
-// import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
-// import { getAllProducts } from '../../requests/products_req'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { getAllProducts } from '../../requests/products_req'
 
-// const initialState = {
-//     list: []
-// }
+const initialState = {
+    list: [],
 
-// export const productsSlice = createSlice({
-//     name: productsSlice,
-//     initialState,
-//     reducers: {
+}
 
-//     },
-//     extraReducers: (builder) => {
-//         builder
-//             .addCase(getAllProducts.pending, (state) => {
-//                 state.status = 'loading'
-//             })
-//             .addCase(getAllProducts.fulfilled, (state, action) => {
-//                 state.status = 'ready'
-//                 console.log(action.payload);
-//                 state.list = action.payload
-//             })
-//             .addCase(getAllProducts.pending), (state) => {
-//                 state.status = 'error'
-//             }
-//     }
-// })
+const allProductsSlice = createSlice({
+    name: "allProducts",
+    initialState,
+    reducers: {
+        sort_products(state, action) {
+            if (action.payload === 'title') {
+                state.list.sort((a, b) => a.title.localeCompare(b.title))
+            } else if (action.payload === 'price_asc') {
+                state.list.sort((a, b) => a.price - b.price)
+            } else if (action.payload === 'price_desc') {
+                state.list.sort((a, b) => b.price - a.price)
+            } else {
+                return state.list.sort((a, b) => a.id - b.id)
+            }
+        },
+        filter_products(state, action) {
+            const { minValue, maxValue } = action.payload
+            state.list.map(el => {
+                let actualPrice = el.discont_price || el.price;
+                if (actualPrice >= minValue && actualPrice <= maxValue) {
+                    el.show_product = true
+                } else {
+                    el.show_product = false
+                } return el
+            })
+        }
+    },
 
+    extraReducers: (builder) => {
+        builder
+            .addCase(getAllProducts.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(getAllProducts.fulfilled, (state, action) => {
+                state.status = 'ready'
+                // console.log(action.payload)
+                state.list = action.payload.map(el => ({ ...el, show_product: true, show_product_by_sale: true }))
+            })
+            .addCase(getAllProducts.rejected, (state) => {
+                state.status = 'error'
+            })
+    }
+})
 
-// const LOAD_ALL_PRODUCTS = 'LOAD_ALL_PRODUCTS'
-// const SORT_PRODUCTS = 'SORT_PRODUCTS'
-// const FILTER_PRODUCTS = 'FILTER_PRODUCTS'
-// const DISCOUNTED_PRODUCTS = 'DISCOUNTED_PRODUCTS'
+export const { sort_products, filter_products } = allProductsSlice.actions
+export default allProductsSlice.reducer
+
 
 // export const loadAllProductsAction = payload => ({ type: LOAD_ALL_PRODUCTS, payload })
 // export const sortProductsAction = payload => ({ type: SORT_PRODUCTS, payload })
@@ -54,6 +75,9 @@
 //         } else {
 //             return [...state].sort((a, b) => a.id - b.id)
 //         }
+
+
+
 //     } else if(action.type === FILTER_PRODUCTS){
 //         const {minValue, maxValue} = action.payload
 //         return state.map(el => {
@@ -63,7 +87,7 @@
 //             } else {
 //                 el.show_product = false
 //             } return el
-//         }) 
+//         })
 //     } else if (action.type === DISCOUNTED_PRODUCTS) {
 //         if(action.payload){
 //          return state.map(el => {
@@ -77,7 +101,7 @@
 //             })
 //         }
 //     }
-//     else { 
+//     else {
 //         return state
 //      }
 // }

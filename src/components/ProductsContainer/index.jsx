@@ -3,6 +3,7 @@ import ProductCard from "../ProductCard";
 import s from "./index.module.css";
 
 export default function ProductsContainer({ products, productsStyle, h1 }) {
+  console.log(products);
   return (
     <div>
       <h1>{h1}</h1>

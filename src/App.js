@@ -51,6 +51,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/categories' element={<AllCategoriesPage />} />
+        <Route path='/products' element={<AllProductsPage />} />
         {/* <Route path='/products' element={<AllProductsPage isFilterVisible={isFilterVisible} handleFilterClick={handleFilterClick}/>} /> */}
         {/* <Route path='/cart' element={<CartPage />} /> */}
         {/* <Route path='/sales' element={<AllSales handleFilterClick={handleFilterClick} isFilterVisible={isFilterVisible}/>} /> */}

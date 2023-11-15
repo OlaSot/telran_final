@@ -22,13 +22,13 @@ export default function ProductCard({
   const addToCart = () => {
     dispatch(addToCartAction(product))
     setShowModal(true);
-    if ('vibrate' in navigator) {
-      // Vibrate for 100 milliseconds
-      navigator.vibrate(100);
-    }
-    setTimeout(() => {
-      setShowModal(false)
-    },800)
+    // if ('vibrate' in navigator) {
+    //   // Vibrate for 100 milliseconds
+    //   navigator.vibrate(100);
+    // }
+    // setTimeout(() => {
+    //   setShowModal(false)
+    // },800)
   }
   
   const saleCalculation = (price, discont_price) => {
