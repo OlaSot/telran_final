@@ -19,7 +19,7 @@ export default function MainPage() {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  const status = useSelector((state) => state.categories.status)
+  const status = useSelector((state) => state.allProducts.status)
 
   const [loading, setLoading] = useState(false)
 
