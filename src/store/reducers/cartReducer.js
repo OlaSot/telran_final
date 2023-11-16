@@ -5,27 +5,17 @@ import { createSlice } from "@reduxjs/toolkit";
 let initialState = JSON.parse(localStorage.getItem('prod_in_Cart')) ?? []
 console.log(initialState);
 
-const checkProduct = (state, payload) => {
-  const productInCart = state.find(el => el.id === +payload.id)
-  if (!productInCart) {
-    state.push({ ...payload, count: 1 })
-  } else {
-    productInCart.count++
-  }
-}
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     add_to_cart(state, action) {
-      checkProduct(state, action.payload);
-      state.push(action.payload)
-    },
-    delete_from_cart(state, action) {
-      const index = state.findIndex(el => el.id === action.payload);
-      if (index !== -1) {
-        state.splice(index, 1); // Удаление элемента
+      const productInCart = state.find(el => el.id === +action.payload.id);
+      if (!productInCart) {
+        state.push({ ...action.payload, count: 1 });
+      } else {
+        productInCart.count++;
       }
     },
     incr_count(state, action) {
