@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import s from "./index.module.css";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,19 +14,27 @@ export default function ProductsByCategoriesPage({handleFilterClick, isFilterVis
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(getProductsByCategory(id)), [dispatch, id]);
+  // useEffect(() => dispatch(getProductsByCategory(id)), [dispatch, id]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+        await dispatch(getProductsByCategory(id));
+    };
+
+    fetchCategories();
+}, [dispatch]);
 
 
-
-  const products_by_category = useSelector((state) => state.productsByCategory);
+  const products_by_category = useSelector((state) => state.productsByCategory.list);
 
   console.log(products_by_category);
 
   const products = products_by_category?.data || [];
 
-  // const new_products = products.map(el => ({...el, show_product: true }));
-  // console.log(new_products)
+  const new_products = products.map(el => ({...el, show_product: true }));
+  console.log(new_products)
+
   const category_title = products_by_category.category;
+
   // console.log('Продукты массив',products);
   return (
     <div className={s.container}>

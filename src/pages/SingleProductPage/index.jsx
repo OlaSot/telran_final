@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import SingleProductItem from "../../components/SingleProductItem";
-import { getOneProduct } from "../../requests/products_req";
+import { getSingleProduct } from "../../requests/products_req";
 
 
 export default function SingleProductPage() {
@@ -10,9 +10,18 @@ export default function SingleProductPage() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(getOneProduct(id)), [dispatch, id]);
+  // useEffect(() => dispatch(getSingleProduct(id)), [dispatch, id]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+         dispatch(getSingleProduct(id));
+    };
 
-  const single_product = useSelector((state) => state.singleProduct);
+    fetchCategories();
+}, [dispatch, id]);
+
+  const single_product = useSelector((state) => state.singleProduct.list);
+
+  console.log('singleproduct', single_product);
 
   return (
     <div>

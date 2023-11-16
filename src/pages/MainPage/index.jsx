@@ -13,11 +13,11 @@ export default function MainPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProducts);
+    dispatch(getAllProducts());
   }, [dispatch]);
 
-  const products = useSelector((state) => state.allProducts);
-
+  const products = useSelector((state) => state.allProducts.list);
+  console.log(products);
   const get_random_products = () => {
     const shuffle_products = [...products]
       .filter((el) => el.discont_price !== null)
@@ -26,7 +26,7 @@ export default function MainPage() {
   };
 
   const random_products = get_random_products();
-  // console.log("random", random_products);
+  console.log("random", random_products);
 
   return (
     <div className={s.main_container}>

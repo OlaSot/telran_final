@@ -1,8 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { sortProductsAction } from "../../../store/reducers/allProductsReducer";
 import s from "./index.module.css";
-import { sortProductsCatAction } from "../../../store/reducers/productsByCategoryReducer";
+import { sort_prods_cat } from "../../../store/reducers/productsByCategoryReducer";
 import {sort_products} from "../../../store/reducers/allProductsReducer";
 
 
@@ -11,7 +10,7 @@ export default function SortForm() {
 
   const order = (e) => {
     dispatch(sort_products(e.target.value));
-    dispatch(sortProductsCatAction(e.target.value));
+    dispatch(sort_prods_cat(e.target.value));
   };
 
   return (

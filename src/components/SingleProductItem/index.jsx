@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./index.module.css";
 import { useDispatch } from "react-redux";
-import { addToCartAction } from "../../store/reducers/cartReducer";
+import { add_to_cart } from "../../store/reducers/cartReducer";
 import button from './button.png'
 
 export default function SingleProductItem({ single_product }) {
@@ -19,7 +19,7 @@ export default function SingleProductItem({ single_product }) {
   const sale = saleCalculation(price, discont_price);
 
   const addToCart = () => {
-    dispatch(addToCartAction(single_product));
+    dispatch(add_to_cart(single_product));
   };
 
   return (

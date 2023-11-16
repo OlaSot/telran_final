@@ -4,7 +4,7 @@ import FormInput from "../FormInput";
 import { useForm } from "react-hook-form";
 import s from "./index.module.css";
 import { useDispatch } from "react-redux";
-import { clearCartAction } from "../../store/reducers/cartReducer";
+import { clear_cart } from "../../store/reducers/cartReducer";
 
 export default function FormItem({
   text,
@@ -32,7 +32,7 @@ export default function FormItem({
   const [showModal, setShowModal] = useState(false);
 
   const submit = (data) => {
-    dispatch(clearCartAction());
+    dispatch(clear_cart());
     onSubmitFunction(data);
     reset();
     setShowModal(true);

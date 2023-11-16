@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import s from "./index.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCartAction } from "../../store/reducers/cartReducer";
+import { add_to_cart } from "../../store/reducers/cartReducer";
 import ModalWindowProduct from "../ModalWindowProduct";
 
 
@@ -20,7 +20,7 @@ export default function ProductCard({
   const [showModal, setShowModal] = useState(false)
 
   const addToCart = () => {
-    dispatch(addToCartAction(product))
+    dispatch(add_to_cart(product))
     setShowModal(true);
     // if ('vibrate' in navigator) {
     //   // Vibrate for 100 milliseconds

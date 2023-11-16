@@ -3,14 +3,14 @@ import s from "./index.module.css";
 import FormItem from "../FormItem";
 import { getSale } from "../../requests/products_req";
 import percent_sale from './5_percent.png'
-import pattern from './Pattern.png'
+
 
 
 export default function SaleBanner({ text }) {
   return (
     <div className={`${s.dwarf_wrapper} ${s.background_pattern}`}>
       <img src={percent_sale} alt="" className={s.percent_img} />
-      {/* <img src={pattern}/> */}
+
 
 
       <div className={s.discount_descr}>

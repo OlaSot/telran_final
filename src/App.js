@@ -20,47 +20,56 @@ import NavMenuBottom from './components/NavMenuBottom';
 
 function App() {
 
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-  useEffect(() => dispatch(getAllCategories()), [dispatch])
 
+    
+    useEffect(() => {
+      const fetchCategories = async () => {
+          await dispatch(getAllCategories());
+      };
+
+      fetchCategories();
+  }, [dispatch]);
+
+
+  
   const [isFilterVisible, setIsFilterVisible] = useState(false);
 
-  // const handleFilterClick = () => {
-  //   setIsFilterVisible(!isFilterVisible);
-  // };
+  const handleFilterClick = () => {
+    setIsFilterVisible(!isFilterVisible);
+  };
 
-  // const items = useSelector((state) => state.cart);
+  const items = useSelector((state) => state.cart);
 
-  // const uniqueProductIds = [];
-  // console.log(uniqueProductIds);
+  const uniqueProductIds = [];
+  console.log(uniqueProductIds);
 
-  // items.forEach((item) => {
-  //   if (!uniqueProductIds.includes(item.id)) {
-  //     uniqueProductIds.push(item.id);
-  //   }
-  // });
+  items.forEach((item) => {
+    if (!uniqueProductIds.includes(item.id)) {
+      uniqueProductIds.push(item.id);
+    }
+  });
 
-  // const uniqueProductCount = uniqueProductIds.length;
+  const uniqueProductCount = uniqueProductIds.length;
 
-  // console.log(uniqueProductCount);
+  console.log(uniqueProductCount);
 
   return (
     <div>
-      {/* <NavMenu uniqueProductCount={uniqueProductCount}/> */}
+      <NavMenu uniqueProductCount={uniqueProductCount}/>
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/categories' element={<AllCategoriesPage />} />
-        <Route path='/products' element={<AllProductsPage />} />
-        {/* <Route path='/products' element={<AllProductsPage isFilterVisible={isFilterVisible} handleFilterClick={handleFilterClick}/>} /> */}
-        {/* <Route path='/cart' element={<CartPage />} /> */}
-        {/* <Route path='/sales' element={<AllSales handleFilterClick={handleFilterClick} isFilterVisible={isFilterVisible}/>} /> */}
-        {/* <Route path='/categories/:id' element={<ProductsByCategoriesPage handleFilterClick={handleFilterClick} isFilterVisible={isFilterVisible}/>} /> */}
-        {/* <Route path='/products/:id' element={<SingleProductPage isFilterVisible={isFilterVisible}/>} /> */}
-        <Route path='*' element={<NotFoundPage />} />
+        <Route path='/products' element={<AllProductsPage isFilterVisible={isFilterVisible} handleFilterClick={handleFilterClick}/>} />
+        <Route path='/cart' element={<CartPage />} />
+        <Route path='/sales' element={<AllSales handleFilterClick={handleFilterClick} isFilterVisible={isFilterVisible}/>} />
+        <Route path='/categories/:id' element={<ProductsByCategoriesPage handleFilterClick={handleFilterClick} isFilterVisible={isFilterVisible}/>} />
+       <Route path='/products/:id' element={<SingleProductPage isFilterVisible={isFilterVisible}/>} />
+      <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />
-      {/* <NavMenuBottom uniqueProductCount={uniqueProductCount}/> */}
+      <NavMenuBottom uniqueProductCount={uniqueProductCount}/>
     </div>
   );
 }

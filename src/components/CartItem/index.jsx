@@ -2,9 +2,10 @@ import React from "react";
 import s from "./index.module.css";
 import { useDispatch } from "react-redux";
 import {
-  decrementCountAction,
-  deleteFromCartAction,
-  incrementCountAction,
+  decr_count,
+  delete_from_cart,
+  incr_count,
+
 } from "../../store/reducers/cartReducer";
 
 export default function CartItem({
@@ -25,13 +26,13 @@ export default function CartItem({
           <p>{title}</p>
         </div>
         <div className={s.btns_container}>
-          <button onClick={() => dispatch(decrementCountAction(id))}>-</button>
+          <button onClick={() => dispatch(decr_count(id))}>-</button>
           <p>{count}</p>
-          <button onClick={() => dispatch(incrementCountAction(id))}>+</button>
+          <button onClick={() => dispatch(incr_count(id))}>+</button>
         </div>
         <p>{price_with_count}$</p>
 
-        <span className={s.delete_btn} onClick={() => dispatch(deleteFromCartAction(id))}>X</span>
+        <span className={s.delete_btn} onClick={() => dispatch(delete_from_cart(id))}>X</span>
       </div>
 
       <div className={s.right_side}></div>

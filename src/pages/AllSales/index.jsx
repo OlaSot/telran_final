@@ -9,14 +9,21 @@ import filter from './filter.svg'
 
 
 export default function AllSales({ handleFilterClick, isFilterVisible }) {
-  const allProducts = useSelector((state) => state.allProducts);
+  const allProducts = useSelector((state) => state.allProducts.list);
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(getAllProducts), [dispatch]);
+  // useEffect(() => dispatch(getAllProducts()), [dispatch]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+        await dispatch(getAllProducts());
+    };
+
+    fetchCategories();
+}, [dispatch]);
 
   const allSalesProducts = allProducts.filter((el) => el.discont_price);
 
-  // console.log(allSalesProducts);
+  console.log(allSalesProducts);
 
   console.log(isFilterVisible);
 

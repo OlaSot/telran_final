@@ -1,33 +1,25 @@
-// import {createStore, combineReducers, applyMiddleware} from 'redux'
-// import thunk from 'redux-thunk'
-// import { categoriesReducer } from './reducers/categoriesReducer'
-// import { productByCategoryReducer } from './reducers/productsByCategoryReducer'
-// import { singleProductReducer } from './reducers/singleProductReducer'
-// import { allProductsReducer } from './reducers/allProductsReducer'
-// import { cartReducer } from './reducers/cartReducer'
-
-
-
-// const rootReducer = combineReducers({
-//     categories: categoriesReducer,
-//     productsByCategory: productByCategoryReducer,
-//     singleProduct: singleProductReducer ,
-//     allProducts: allProductsReducer,
-//     cart: cartReducer,
-
-// })
-// export const store = createStore(rootReducer,applyMiddleware(thunk))
-
 import { configureStore } from '@reduxjs/toolkit'
 import categoriesReducer from './reducers/categoriesReducer'
 import allProductsReducer from './reducers/allProductsReducer'
+import productsByCategoryReducer from './reducers/productsByCategoryReducer'
+import singleProductReducer from './reducers/singleProductReducer'
+import cartReducer from './reducers/cartReducer'
+
 
 
 export const store = configureStore({
     reducer: {
         categories: categoriesReducer,
-        allProducts: allProductsReducer
+        allProducts: allProductsReducer,
+        productsByCategory: productsByCategoryReducer,
+        singleProduct: singleProductReducer,
+        cart: cartReducer
     }
+})
+
+store.subscribe(() => {
+    const state = store.getState()
+    localStorage.setItem('prod_in_cart', JSON.stringify(state.cart))
 })
 
 export default store

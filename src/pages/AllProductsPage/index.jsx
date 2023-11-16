@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts } from "../../requests/products_req";
+import { getAllProducts} from "../../requests/products_req";
 import ProductsContainer from "../../components/ProductsContainer";
 import s from "./index.module.css";
 import SortForm from "../../components/FilterForms/SortForm";
@@ -14,11 +14,17 @@ export default function AllProductsPage({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProducts());
-  }, [dispatch]);
+    const fetchCategories = async () => {
+        await dispatch(getAllProducts());
+    };
+
+    fetchCategories();
+}, [dispatch]);
+
+
 
   const allProducts = useSelector((state) => state.allProducts.list);
-  // console.log(allProducts);
+  console.log(allProducts);
 
   return (
     <div className={s.container}>
@@ -33,12 +39,12 @@ export default function AllProductsPage({
       </div>
       <div className={`${s.filter_mobile} ${isFilterVisible ? s.show : ""}`}>
         <FilterForm />
-        {/* <DiscountForm /> */}
+        <DiscountForm />
         <SortForm />
       </div>
       <div className={s.sort_container}>
         <FilterForm />
-        {/* <DiscountForm /> */}
+        <DiscountForm />
         <SortForm />
       </div>
       

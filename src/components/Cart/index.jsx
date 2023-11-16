@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../CartItem";
-import { clearCartAction } from "../../store/reducers/cartReducer";
+import { clear_cart } from "../../store/reducers/cartReducer";
 import s from "./index.module.css";
 import FormItem from "../FormItem";
 import { sendOrder } from "../../requests/products_req";
@@ -49,7 +49,7 @@ export default function Cart() {
               <p>Total: {total}$</p>
               <div
                 className={s.clear_btn}
-                onClick={() => dispatch(clearCartAction())}
+                onClick={() => dispatch(clear_cart())}
               >
                 <img src={trashIcon} alt="" />
               </div>
