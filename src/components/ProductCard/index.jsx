@@ -26,9 +26,9 @@ export default function ProductCard({
     //   // Vibrate for 100 milliseconds
     //   navigator.vibrate(100);
     // }
-    // setTimeout(() => {
-    //   setShowModal(false)
-    // },800)
+    setTimeout(() => {
+      setShowModal(false)
+    },800)
   }
   
   const saleCalculation = (price, discont_price) => {

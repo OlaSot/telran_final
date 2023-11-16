@@ -1,4 +1,9 @@
 /*category*/
+.animation {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
 .catalog_container {
     color: #575959;
     margin: 50px auto;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import s from "./index.module.css";
 import CategoriesContainer from "../../components/CategoriesContainer";
 import ProductsContainer from "../../components/ProductsContainer";
@@ -8,13 +8,25 @@ import MainBanner from "../../components/MainBanner";
 import SaleBanner from "../../components/SaleBanner";
 import { Link } from "react-router-dom";
 import Btn from "../../components/Btn";
+import animation from './animation.json'
+import Lottie from "lottie-react";
 
 export default function MainPage() {
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
+
+  const status = useSelector((state) => state.categories.status)
+
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    // Обновите состояние loading на основе значения status
+    setLoading(status === 'loading');
+  }, [status]);
 
   const products = useSelector((state) => state.allProducts.list);
   console.log(products);
@@ -29,7 +41,13 @@ export default function MainPage() {
   console.log("random", random_products);
 
   return (
-    <div className={s.main_container}>
+    <div>
+      {loading ? 
+    <div className={s.animation}>
+        <Lottie animationData={animation} />
+    </div>
+    :
+        (<div className={s.main_container}>
       <div className={s.main_banner_wrapper}>
         <MainBanner />
       </div>
@@ -54,6 +72,9 @@ export default function MainPage() {
           productsStyle={true}
         />
       </div>
+    </div>
+    )}
+
     </div>
   );
 }
