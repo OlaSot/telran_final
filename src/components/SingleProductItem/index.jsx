@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./index.module.css";
 import { useDispatch } from "react-redux";
 import { add_to_cart } from "../../store/reducers/cartReducer";
 import button from './button.png'
+import ModalWindowProduct from "../ModalWindowProduct";
 
 export default function SingleProductItem({ single_product }) {
   const { title, price, description, image, discont_price } = single_product;
 
   const dispatch = useDispatch();
+
+  const [showModal, setShowModal] = useState(false)
 
   const saleCalculation = (price, discont_price) => {
     if (discont_price === null) {
@@ -20,7 +23,13 @@ export default function SingleProductItem({ single_product }) {
 
   const addToCart = () => {
     dispatch(add_to_cart(single_product));
-  };
+    setShowModal(true)
+
+      setTimeout(() => {
+        setShowModal(false)
+      },800)
+    }
+    
 
   return (
     <div className={s.product_container}>
@@ -53,6 +62,7 @@ export default function SingleProductItem({ single_product }) {
             <p>Description:</p>
             <p>{description}</p>
           </div>
+          {showModal && <ModalWindowProduct />}
         </div>
       </div>
     </div>
